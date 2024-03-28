@@ -84,3 +84,29 @@ async function saveCustomerToMongoDB(name, email) {
     await client.close();
     }
 }
+
+module.exports.getCustomers = async function(req, res, next) {
+    try {
+        await client.connect();
+        await client.db("admin").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+        var db0 = client.db("shoppingsite");
+        console.log("got shopping site");
+        console.log("db0" + db0.toString());
+
+        var customersCollection = db0.collection('customers');
+        console.log("collection is " + customersCollection.collectionName);
+        console.log("# documents in it " + await customersCollection.countDocuments());
+
+        const customerListCursor = customersCollection.find().limit(10);
+        const customerList = await customerListCursor.toArray();
+
+        res.render('customerList', { title:'customerList', customerList });
+    } catch (error) {
+        console.error("Error fetching customer data:", error);
+        res.status(500).send("Error fetching customer data");
+    } finally {
+        await client.close();
+    }
+}

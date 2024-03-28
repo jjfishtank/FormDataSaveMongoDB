@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1><%= title %></h1>
+  <p>Welcome to <%= title %>!</p>
+
+  <b>First 10 customers:</b>
+  <ul>
+    <% customerList.forEach((customer) => { %>
+      <li><%= customer.name %> - <%= customer.email %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
