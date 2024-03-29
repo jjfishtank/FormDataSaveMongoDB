@@ -1,1 +1,0 @@
-module.exports = { uri: 'mongodb+srv://jrenati:uKmNSh8g3mJrgQGH@shoppingsite.0pthyyx.mongodb.net/?retryWrites=true&w=majority&appName=shoppingsite' };
