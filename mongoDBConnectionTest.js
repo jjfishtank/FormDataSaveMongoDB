@@ -1,7 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');  //require model and get the MongoClient class
 
 //STEP A: you will replace the following URI with YOUR connection string from MongoDB Atlas (go to the web console to find this
-const uri = "mongodb+srv://jrenati:uKmNSh8g3mJrgQGH@shoppingsite.0pthyyx.mongodb.net/?retryWrites=true&w=majority&appName=shoppingsite";
+const uri = "";
 
 //STEP B:  Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
